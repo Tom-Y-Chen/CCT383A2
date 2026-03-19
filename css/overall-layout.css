@@ -1,0 +1,152 @@
+/* Overall Layout - iPhone 13 Pro Frame */
+
+/* Main container for demo presentation */
+.demo-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* iPhone 13 Pro Frame */
+.iphone-frame {
+  width: var(--iphone-width);
+  height: var(--iphone-height);
+  background: #000;
+  border-radius: var(--iphone-radius);
+  padding: var(--iphone-bezel);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Screen area */
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  border-radius: calc(var(--iphone-radius) - var(--iphone-bezel));
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Notch */
+.iphone-frame::before {
+  content: '';
+  position: absolute;
+  top: var(--iphone-bezel);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 30px;
+  background: #000;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 1000;
+}
+
+/* App Shell Structure */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  padding-bottom: 80px; /* Space for tab bar */
+}
+
+/* Tab Bar (Bottom Navigation) */
+.tab-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing-sm) 0;
+  padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom, 0));
+  border-top: 1px solid var(--color-border);
+  z-index: 100;
+}
+
+.tab-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-text-light);
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.tab-bar__item--active {
+  color: var(--color-primary);
+}
+
+.tab-bar__icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.tab-bar__label {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+/* Page Container */
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header with Search */
+.header {
+  background-color: var(--color-surface);
+  padding: calc(var(--spacing-md) + 20px) var(--spacing-md) var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-background);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.search-bar__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: var(--spacing-xs);
+  outline: none;
+  font-size: var(--font-size-md);
+  width: 100%;
+}
+
+.search-bar__icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-light);
+  margin-right: var(--spacing-sm);
+}
