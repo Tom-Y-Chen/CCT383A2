@@ -85,6 +85,11 @@
   color: var(--color-text-light);
   transition: color 0.3s ease;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.tab-bar__item:hover {
+  color: var(--color-primary);
 }
 
 .tab-bar__item--active {
