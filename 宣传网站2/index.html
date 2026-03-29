@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TripTailor — A Public Campaign for Smarter Travel Planning</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <span class="logo-mark">✦</span>TripTailor
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#problem">The Problem</a>
+      <a href="#who">Who It's For</a>
+      <a href="#solution">The Solution</a>
+      <a href="#engage">Share Your View</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#engage" class="nav-cta">Share Your View</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#problem">The Problem</a>
+    <a href="#who">Who It's For</a>
+    <a href="#solution">The Solution</a>
+    <a href="#engage">Share Your View</a>
+    <a href="#faq">FAQ</a>
+    <a href="#engage" class="mobile-cta">Share Your View →</a>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg-blobs">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-kicker reveal-up" style="--d:0s">✦ University Innovation Project · Toronto</div>
+    <h1 class="hero-headline reveal-up" style="--d:.08s">
+      Too many saved posts,<br>
+      <em>still no real plan?</em>
+    </h1>
+    <p class="hero-sub reveal-up" style="--d:.18s">
+      We've all been there — folders of bookmarked places, saved Instagram posts, TikTok lists… and still no idea where to actually go or how much it'll cost. TripTailor is a student-built concept designed to fix that.
+    </p>
+    <div class="hero-ctas reveal-up" style="--d:.28s">
+      <a href="#engage" class="btn-primary">✦ Share Your Experience</a>
+      <a href="#problem" class="btn-ghost">See the Problem →</a>
+    </div>
+    <div class="hero-trust reveal-up" style="--d:.38s">
+      <span>🎓 Built by university students</span>
+      <span class="dot">·</span>
+      <span>🏙 Tested in Toronto</span>
+      <span class="dot">·</span>
+      <span>💚 Not a commercial product</span>
+    </div>
+  </div>
+
+  <!-- Phone mockup -->
+  <div class="hero-phone-wrap reveal-up" style="--d:.32s">
+    <div class="hero-phone">
+      <div class="hp-notch"></div>
+      <div class="hp-screen">
+        <div class="hp-greeting">Good morning, Alex ☀️</div>
+        <div class="hp-question">Where to today?</div>
+        <div class="hp-ai-bar">
+          <span>✦</span>
+          <span class="hp-ai-text" id="hp-ai-text">Plan a day in Toronto…</span>
+        </div>
+        <div class="hp-trip-card">
+          <div class="hp-tc-label">Active Trip</div>
+          <div class="hp-tc-name">Toronto Highlights</div>
+          <div class="hp-tc-meta">Stop 1 of 3 · ~$85</div>
+          <div class="hp-progress"><div class="hp-fill"></div></div>
+        </div>
+        <div class="hp-stops">
+          <div class="hp-stop active-stop">
+            <span class="hp-stop-dot"></span>
+            <span>🗼 CN Tower</span>
+            <span class="hp-stop-time">Now</span>
+          </div>
+          <div class="hp-connector">🚶 18 min walk</div>
+          <div class="hp-stop">
+            <span class="hp-stop-dot dim"></span>
+            <span>🎭 ROM</span>
+            <span class="hp-stop-time">2:00 PM</span>
+          </div>
+          <div class="hp-connector">🚇 12 min transit</div>
+          <div class="hp-stop">
+            <span class="hp-stop-dot dim"></span>
+            <span>🏛 Distillery</span>
+            <span class="hp-stop-time">4:30 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="hp-home-bar"></div>
+    </div>
+    <div class="hp-glow"></div>
+  </div>
+</section>
+
+<!-- ══════ CAMPAIGN MESSAGES ══════ -->
+<section class="messages" id="messages">
+  <div class="container">
+    <div class="section-label reveal-up">Our Core Campaign Messages</div>
+    <div class="msg-trio">
+      <div class="msg-card reveal-up" style="--d:0s">
+        <div class="msg-num">01</div>
+        <h3>"Too many saved posts,<br>still no real plan?"</h3>
+        <p>Saving posts is easy. Turning them into a real day out? That's where the gap is. TripTailor bridges that gap.</p>
+      </div>
+      <div class="msg-card reveal-up msg-card-accent" style="--d:.1s">
+        <div class="msg-num">02</div>
+        <h3>"TripTailor turns<br>inspiration into action."</h3>
+        <p>From scattered bookmarks to a structured route — with budget, transport, and food all in one place.</p>
+      </div>
+      <div class="msg-card reveal-up" style="--d:.2s">
+        <div class="msg-num">03</div>
+        <h3>"Plan around your budget,<br>your time, and how you travel."</h3>
+        <p>Not everyone travels the same way. TripTailor adapts to you — not the other way around.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ THE PROBLEM ══════ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="section-label reveal-up">The Everyday Problem</div>
+    <h2 class="section-title reveal-up">
+      We all save places.<br>
+      <em>Most of us never go.</em>
+    </h2>
+    <p class="section-sub reveal-up">
+      Travel planning today is scattered, time-consuming, and often leaves people more confused than when they started. Here's what that actually looks like.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card reveal-up" style="--d:0s">
+        <div class="pc-icon">📱</div>
+        <h3>Too much saved, too little structure</h3>
+        <p>Many people save dozens of travel posts before a trip — restaurants, photo spots, local events. But there's no easy way to turn all of that into a workable plan. So the posts just sit there, unused.</p>
+        <div class="pc-quote">"I have so many saved posts and I never actually use them."</div>
+      </div>
+      <div class="problem-card reveal-up" style="--d:.08s">
+        <div class="pc-icon">🧩</div>
+        <h3>Everything is disconnected</h3>
+        <p>People switch between Google Maps, Yelp, transit apps, and social media just to plan one afternoon. Nothing talks to each other. The result is wasted time and unnecessary stress.</p>
+        <div class="pc-quote">"I'm juggling five apps and I still don't know if I can afford it all."</div>
+      </div>
+      <div class="problem-card reveal-up" style="--d:.16s">
+        <div class="pc-icon">💸</div>
+        <h3>No idea what it'll actually cost</h3>
+        <p>Budget is often an afterthought in travel planning — you find out how much you've spent after the fact, not before. This is especially difficult for students and budget-conscious travellers.</p>
+        <div class="pc-quote">"I had no idea I'd go over budget until I was already there."</div>
+      </div>
+      <div class="problem-card reveal-up" style="--d:.24s">
+        <div class="pc-icon">🌍</div>
+        <h3>Newcomers and visitors get left behind</h3>
+        <p>If you don't have local knowledge — or someone to ask — it's hard to know where to start, what's worth visiting, and what to skip. Most travel apps surface the same tourist spots for everyone.</p>
+        <div class="pc-quote">"I didn't know what to do first, or even how to get there."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ WHY THIS MATTERS ══════ -->
+<section class="why-now" id="why">
+  <div class="container">
+    <div class="wn-inner">
+      <div class="wn-left reveal-up">
+        <div class="section-label">Why This Matters</div>
+        <h2 class="section-title">
+          The way we discover places<br>has changed.<br>
+          <em>Planning hasn't caught up.</em>
+        </h2>
+        <p class="wn-context">Social media changed how we find things to do. But it was never built to help us actually plan. That gap is the problem TripTailor is trying to solve.</p>
+      </div>
+      <div class="wn-right reveal-up">
+        <div class="wn-point">
+          <div class="wn-icon">📲</div>
+          <div>
+            <h4>Discovery happens on social media</h4>
+            <p>People find restaurants, events, and neighbourhoods on Instagram, TikTok, and YouTube — not travel agencies. But those platforms weren't designed to help you plan around a budget or figure out transit.</p>
+          </div>
+        </div>
+        <div class="wn-point">
+          <div class="wn-icon">🌆</div>
+          <div>
+            <h4>Cities are harder to navigate without local knowledge</h4>
+            <p>Pop-up events, complex transit systems, and constantly changing neighbourhoods make planning a visit genuinely difficult — especially if you're new to a city.</p>
+          </div>
+        </div>
+        <div class="wn-point">
+          <div class="wn-icon">⏰</div>
+          <div>
+            <h4>Time is limited, and planning takes too long</h4>
+            <p>Busy students, working adults, and families with kids don't have hours to spend researching a Saturday out. But if you don't plan properly, you often end up doing nothing at all.</p>
+          </div>
+        </div>
+        <div class="wn-point">
+          <div class="wn-icon">💚</div>
+          <div>
+            <h4>Better planning means more access for everyone</h4>
+            <p>When planning is easier, more people explore — and that's good for communities, local businesses, and the sense of belonging in a city.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ WHO THIS IS FOR ══════ -->
+<section class="who-for" id="who">
+  <div class="container">
+    <div class="section-label reveal-up">Who This Is For</div>
+    <h2 class="section-title reveal-up">
+      Not for travel influencers.<br>
+      <em>For everyone else.</em>
+    </h2>
+    <p class="section-sub reveal-up">TripTailor is designed for real people with everyday travel challenges — not for professional travellers or people with unlimited time and money.</p>
+
+    <div class="who-grid">
+      <div class="who-card reveal-up" style="--d:0s">
+        <div class="who-emoji">🎓</div>
+        <h4>Students</h4>
+        <p>Exploring on a tight budget, figuring out transit, trying to make the most of a free Saturday.</p>
+      </div>
+      <div class="who-card reveal-up" style="--d:.07s">
+        <div class="who-emoji">🧳</div>
+        <h4>Visitors & newcomers</h4>
+        <p>New to a city, unfamiliar with neighbourhoods, unsure where to start or what's actually worth doing.</p>
+      </div>
+      <div class="who-card reveal-up" style="--d:.14s">
+        <div class="who-emoji">👨‍👩‍👧</div>
+        <h4>Families planning a day out</h4>
+        <p>Coordinating multiple people, mixed preferences, and a budget — without spending hours on Google.</p>
+      </div>
+      <div class="who-card reveal-up" style="--d:.21s">
+        <div class="who-emoji">💑</div>
+        <h4>Couples & friends</h4>
+        <p>Wanting a proper day out, not just "wherever we end up" — but also not wanting to over-plan.</p>
+      </div>
+      <div class="who-card reveal-up" style="--d:.28s">
+        <div class="who-emoji">💰</div>
+        <h4>Budget-conscious explorers</h4>
+        <p>People who want to do more without spending more — and need to know costs before committing.</p>
+      </div>
+      <div class="who-card reveal-up" style="--d:.35s">
+        <div class="who-emoji">🏙</div>
+        <h4>Locals who want to do more</h4>
+        <p>People who live in the city but always mean to explore it more — and need a nudge and a plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SOLUTION ══════ -->
+<section class="solution" id="solution">
+  <div class="container">
+    <div class="sol-split">
+      <div class="sol-left">
+        <div class="section-label light reveal-up">What TripTailor Does</div>
+        <h2 class="section-title light reveal-up">
+          One place to go<br>
+          <em>from idea to plan.</em>
+        </h2>
+        <p class="section-sub light reveal-up">
+          TripTailor is an AI-powered travel planning concept that takes the places you want to visit and turns them into a practical route — with budget, transit, and food built in.
+        </p>
+
+        <div class="sol-flow reveal-up">
+          <div class="sf-step">
+            <div class="sf-num">1</div>
+            <div>
+              <div class="sf-title">Browse or describe what you want</div>
+              <div class="sf-sub">Search for places, browse local events, or just describe a trip in plain language</div>
+            </div>
+          </div>
+          <div class="sf-arrow">↓</div>
+          <div class="sf-step">
+            <div class="sf-num">2</div>
+            <div>
+              <div class="sf-title">Add places to your trip</div>
+              <div class="sf-sub">Build a collection of stops that interest you, in any order</div>
+            </div>
+          </div>
+          <div class="sf-arrow">↓</div>
+          <div class="sf-step">
+            <div class="sf-num">3</div>
+            <div>
+              <div class="sf-title">Get a route with budget and transit</div>
+              <div class="sf-sub">See a full plan: time between stops, estimated costs, transport options</div>
+            </div>
+          </div>
+          <div class="sf-arrow">↓</div>
+          <div class="sf-step">
+            <div class="sf-num">4</div>
+            <div>
+              <div class="sf-title">Follow it on the day</div>
+              <div class="sf-sub">Live guidance as you go — including food suggestions along the route</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sol-right reveal-up">
+        <div class="sol-phones">
+          <div class="sol-phone sp1">
+            <div class="sp-label">Discover Mode</div>
+            <div class="sp-card-row">
+              <div class="sp-card" style="background:linear-gradient(135deg,#f9a8d4,#ec4899)">🎪 Neon Festival</div>
+              <div class="sp-card" style="background:linear-gradient(135deg,#a7f3d0,#059669)">🏛 ROM Exhibit</div>
+            </div>
+            <div class="sp-card-row">
+              <div class="sp-card wide" style="background:linear-gradient(135deg,#bae6fd,#0284c7)">🌊 Waterfront Market</div>
+            </div>
+          </div>
+          <div class="sol-phone sp2">
+            <div class="sp-label">Route + Budget</div>
+            <div class="sp-budget-bar">
+              <span>Daily Budget</span><strong>$90</strong>
+              <div class="sp-bar"><div class="sp-fill"></div></div>
+            </div>
+            <div class="sp-transport">
+              <span class="sp-tm active">🚶</span>
+              <span class="sp-tm">🚇</span>
+              <span class="sp-tm">🚲</span>
+              <span class="sp-tm">🚗</span>
+            </div>
+            <div class="sp-route-vis">
+              <div class="sp-rv-dot"></div>
+              <div class="sp-rv-line"></div>
+              <div class="sp-rv-dot"></div>
+              <div class="sp-rv-line"></div>
+              <div class="sp-rv-dot"></div>
+            </div>
+          </div>
+          <div class="sol-phone sp3">
+            <div class="sp-label">Guide Mode</div>
+            <div class="sp-guide-stop">
+              <div class="sp-gs-badge">You're here</div>
+              <div class="sp-gs-name">🗼 CN Tower</div>
+              <div class="sp-gs-meta">~1.5h · ~$30 · Stop 1 of 3</div>
+              <div class="sp-gs-tip">💡 Best views from the east side in the afternoon.</div>
+            </div>
+            <div class="sp-food-chip">🍜 Nearby: Ichiran Ramen · 5 min walk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ APP SCREENS ══════ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-label reveal-up">App Screens</div>
+    <h2 class="section-title reveal-up">
+      Here's what it looks like<br>
+      <em>in practice.</em>
+    </h2>
+
+    <div class="feat-list">
+      <!-- Feature 1 -->
+      <div class="feat-row reveal-up">
+        <div class="feat-visual fv1">
+          <div class="fv-phone">
+            <div class="fv-screen">
+              <div class="fv-tag">✦ Discover</div>
+              <div class="fv-ev ev-a" style="background:linear-gradient(135deg,#f9a8d4,#ec4899 60%)">
+                <div class="fv-ev-date">SAT</div>
+                <div class="fv-ev-title">Neon Night Festival</div>
+                <div class="fv-ev-loc">📍 Entertainment District</div>
+              </div>
+              <div class="fv-ev ev-b" style="background:linear-gradient(135deg,#fde68a,#d97706 60%)">
+                <div class="fv-ev-date">NOW ON</div>
+                <div class="fv-ev-title">ROM: Ancient Worlds</div>
+                <div class="fv-ev-loc">📍 Royal Ontario Museum</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feat-text">
+          <div class="ft-number">01</div>
+          <h3>Browse local events and spots</h3>
+          <p>Discover curated places and events near you — filtered by what actually matters to you: food, culture, outdoor, nightlife. Add anything to your trip with one tap.</p>
+          <div class="ft-note">No algorithm. No sponsored placements. Just local places worth visiting.</div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feat-row reverse reveal-up">
+        <div class="feat-visual fv2">
+          <div class="fv-phone">
+            <div class="fv-screen">
+              <div class="fv-tag">🗺 Route Planner</div>
+              <div class="fv-budget-block">
+                <div class="fvb-lbl">Daily Budget</div>
+                <div class="fvb-val">$90</div>
+                <div class="fvb-bar"><div class="fvb-fill"></div></div>
+              </div>
+              <div class="fv-stops">
+                <div class="fv-stop-item">
+                  <div class="fv-si-col" style="background:linear-gradient(135deg,#bae6fd,#0284c7)"></div>
+                  <div><div class="fv-si-name">🗼 CN Tower</div><div class="fv-si-dur">1.5h · ~$30</div></div>
+                </div>
+                <div class="fv-commute">🚶 Walk · 18 min · 1.2 km</div>
+                <div class="fv-stop-item">
+                  <div class="fv-si-col" style="background:linear-gradient(135deg,#fde68a,#d97706)"></div>
+                  <div><div class="fv-si-name">🎭 ROM</div><div class="fv-si-dur">2h · ~$28</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feat-text">
+          <div class="ft-number">02</div>
+          <h3>Plan your route and see costs upfront</h3>
+          <p>TripTailor builds a time-efficient route from your saved places, calculates realistic travel times, and shows you the full estimated cost before you leave the house.</p>
+          <div class="ft-note">Choose how you want to travel — walk, transit, bike, or drive — and the route adjusts.</div>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feat-row reveal-up">
+        <div class="feat-visual fv3">
+          <div class="fv-phone">
+            <div class="fv-screen dark-screen">
+              <div class="fv-tag light-tag">🧭 Guide Mode</div>
+              <div class="fv-guide-card">
+                <div class="fv-gc-img" style="background:linear-gradient(135deg,#a7f3d0,#059669)"></div>
+                <div class="fv-gc-body">
+                  <div class="fv-gc-name">🗼 CN Tower</div>
+                  <div class="fv-gc-meta">1.5h · ~$30 · Stop 1 of 3</div>
+                  <div class="fv-gc-tip">💡 Best views: face east in the afternoon</div>
+                </div>
+              </div>
+              <div class="fv-food-sug">
+                <span class="fv-fs-icon">🍜</span>
+                <div>
+                  <div class="fv-fs-name">Ichiran Ramen · 5 min walk</div>
+                  <div class="fv-fs-meta">4.7★ · ~$15</div>
+                </div>
+                <button class="fv-fs-btn">Go</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feat-text">
+          <div class="ft-number">03</div>
+          <h3>Follow along on the day</h3>
+          <p>Once you're out, TripTailor becomes a live guide. It tells you where you are, what's next, when to leave — and suggests food options close to your route so you're never stuck looking for somewhere to eat.</p>
+          <div class="ft-note">Think of it as a friend who's already been everywhere and knows the good spots.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SOCIAL OUTREACH ══════ -->
+<section class="social" id="social">
+  <div class="container">
+    <div class="section-label reveal-up">Public Voices · Campaign Stories</div>
+    <h2 class="section-title reveal-up">
+      These are the people<br>
+      <em>TripTailor is built for.</em>
+    </h2>
+    <p class="section-sub reveal-up">These mockups represent the real everyday travel challenges our research uncovered — from students and newcomers to families and local explorers. Do any of these sound familiar?</p>
+
+    <div class="social-grid">
+      <!-- Story 1 -->
+      <div class="social-post reveal-up" style="--d:0s">
+        <div class="sp-ig-header">
+          <div class="sp-ig-av" style="background:linear-gradient(135deg,#059669,#34d399)">SK</div>
+          <div class="sp-ig-info">
+            <div class="sp-ig-name">@sarah.explores</div>
+            <div class="sp-ig-loc">📍 Toronto</div>
+          </div>
+          <div class="sp-ig-platform">ig</div>
+        </div>
+        <div class="sp-ig-img" style="background:linear-gradient(135deg,#a7f3d0,#059669)">
+          <div class="sp-ig-overlay">
+            <div class="sp-ig-tag">#TripTailorIRL</div>
+            <div class="sp-ig-caption">St. Lawrence → ROM → Kensington</div>
+          </div>
+        </div>
+        <div class="sp-ig-body">
+          <p><strong>sarah.explores</strong> Found a ramen spot between stops I never would've known about 🍜 Came in under budget too. This is the kind of planning help I've always needed.</p>
+          <div class="sp-ig-tags">#TripTailor #Toronto #WeekendPlanning</div>
+        </div>
+        <div class="sp-ig-foot">
+          <span>❤️ 142</span><span>💬 23</span>
+        </div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="social-post reveal-up" style="--d:.1s">
+        <div class="sp-ig-header">
+          <div class="sp-ig-av" style="background:linear-gradient(135deg,#0284c7,#38bdf8)">JT</div>
+          <div class="sp-ig-info">
+            <div class="sp-ig-name">@jintravels</div>
+            <div class="sp-ig-loc">📍 New to the city</div>
+          </div>
+          <div class="sp-ig-platform">ig</div>
+        </div>
+        <div class="sp-ig-img" style="background:linear-gradient(135deg,#bae6fd,#0284c7)">
+          <div class="sp-ig-overlay">
+            <div class="sp-ig-tag">#TripTailorIRL</div>
+            <div class="sp-ig-caption">$45 full day out 🎉</div>
+          </div>
+        </div>
+        <div class="sp-ig-body">
+          <p><strong>jintravels</strong> As someone new to Toronto I had no idea where to start or how much anything costs. TripTailor just showed me the full plan — route, transit, price. I did a whole day for $45.</p>
+          <div class="sp-tags-inline">
+            <span class="sp-tag">🎓 Student Budget</span>
+            <span class="sp-tag">🚇 Transit-friendly</span>
+          </div>
+        </div>
+        <div class="sp-ig-foot">
+          <span>❤️ 89</span><span>💬 14</span>
+        </div>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="social-post reveal-up" style="--d:.2s">
+        <div class="sp-ig-header">
+          <div class="sp-ig-av" style="background:linear-gradient(135deg,#dc2626,#f97316)">PM</div>
+          <div class="sp-ig-info">
+            <div class="sp-ig-name">@priya.family</div>
+            <div class="sp-ig-loc">📍 Scarborough</div>
+          </div>
+          <div class="sp-ig-platform">ig</div>
+        </div>
+        <div class="sp-ig-img" style="background:linear-gradient(135deg,#fde68a,#f59e0b)">
+          <div class="sp-ig-overlay">
+            <div class="sp-ig-tag">#TripTailorIRL</div>
+            <div class="sp-ig-caption">Family day, zero stress ✅</div>
+          </div>
+        </div>
+        <div class="sp-ig-body">
+          <p><strong>priya.family</strong> Planning a day out with two kids used to take me hours across Google Maps, Yelp, and TTC. TripTailor gave me three stops, directions, and two food options the kids would actually eat — in minutes.</p>
+        </div>
+        <div class="sp-ig-foot">
+          <span>❤️ 204</span><span>💬 38</span>
+        </div>
+      </div>
+
+      <!-- Campaign hashtag card -->
+      <div class="hashtag-card reveal-up" style="--d:.3s">
+        <div class="hc-icon">📣</div>
+        <div class="hc-tag">#TripTailorIRL</div>
+        <p>This is our public campaign hashtag. If you've ever struggled to turn travel inspiration into an actual plan — that's the story we want to hear.</p>
+        <div class="hc-prompt">How many posts do you save before you actually go somewhere?</div>
+        <div class="hc-options">
+          <button class="hc-opt" data-v="a">📌 Under 10</button>
+          <button class="hc-opt" data-v="b">📌 10–30</button>
+          <button class="hc-opt" data-v="c">📌 30–50</button>
+          <button class="hc-opt" data-v="d">📌 Way too many</button>
+        </div>
+        <div class="hc-result hidden" id="hc-result">
+          Thanks for sharing 🙌 You're not alone.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ENGAGEMENT / POLL ══════ -->
+<section class="engage" id="engage">
+  <div class="engage-bg">
+    <div class="engage-blob eb1"></div>
+    <div class="engage-blob eb2"></div>
+  </div>
+  <div class="container">
+    <div class="section-label light reveal-up">Share Your View</div>
+    <h2 class="section-title light reveal-up">
+      We want to hear from you.<br>
+      <em>Genuinely.</em>
+    </h2>
+    <p class="section-sub light reveal-up">
+      TripTailor is a university project — which means your feedback actually shapes what we build. Tell us what matters most to you.
+    </p>
+
+    <div class="engage-grid">
+      <!-- Poll -->
+      <div class="poll-card reveal-up">
+        <div class="poll-header">
+          <div class="poll-label">📊 Quick Poll</div>
+          <h3>What makes trip planning most stressful for you?</h3>
+        </div>
+        <div class="poll-options" id="poll-options">
+          <button class="poll-opt" data-poll="a">
+            <span class="po-letter">A</span>
+            <span class="po-text">Too many options — I can't choose</span>
+            <span class="po-bar-wrap"><span class="po-bar" data-pct="38"></span></span>
+          </button>
+          <button class="poll-opt" data-poll="b">
+            <span class="po-letter">B</span>
+            <span class="po-text">Budget uncertainty — will I overspend?</span>
+            <span class="po-bar-wrap"><span class="po-bar" data-pct="31"></span></span>
+          </button>
+          <button class="poll-opt" data-poll="c">
+            <span class="po-letter">C</span>
+            <span class="po-text">Transit confusion — how do I get between stops?</span>
+            <span class="po-bar-wrap"><span class="po-bar" data-pct="18"></span></span>
+          </button>
+          <button class="poll-opt" data-poll="d">
+            <span class="po-letter">D</span>
+            <span class="po-text">Finding food nearby while I'm out</span>
+            <span class="po-bar-wrap"><span class="po-bar" data-pct="13"></span></span>
+          </button>
+        </div>
+        <div class="poll-footer hidden" id="poll-footer">
+          <div class="pf-thanks">✓ Thanks for voting!</div>
+          <div class="pf-note">These results help us prioritise what we build first.</div>
+        </div>
+      </div>
+
+      <!-- Feedback prompt -->
+      <div class="feedback-card reveal-up">
+        <div class="fc-header">
+          <div class="fc-label">💬 Tell Us More</div>
+          <h3>What's your biggest trip-planning frustration?</h3>
+        </div>
+        <div class="fc-options" id="fc-options">
+          <button class="fc-opt" data-f="saved">📌 I save stuff but never follow through</button>
+          <button class="fc-opt" data-f="budget">💸 I don't know if I can afford it</button>
+          <button class="fc-opt" data-f="transit">🚇 Figuring out how to get around</button>
+          <button class="fc-opt" data-f="food">🍜 Finding good food while I'm out</button>
+          <button class="fc-opt" data-f="overwhelm">😵 Just too many decisions to make</button>
+          <button class="fc-opt" data-f="knowledge">🗺 Not knowing the city well enough</button>
+        </div>
+        <div class="fc-result hidden" id="fc-result">
+          <div class="fcr-icon">🎉</div>
+          <div class="fcr-text">Thank you — this is exactly the kind of input that shapes TripTailor.</div>
+          <a href="#faq" class="fcr-link">Read how we're addressing this →</a>
+        </div>
+      </div>
+
+      <!-- Participation CTA -->
+      <div class="participate-card reveal-up">
+        <div class="pc2-icon">🛠</div>
+        <h3>Help us improve TripTailor</h3>
+        <p>We're a student team at the beginning of this project. Your input genuinely matters — not as a marketing exercise, but because we want to build something that solves a real problem.</p>
+        <div class="pc2-actions">
+          <button class="btn-light" id="try-concept-btn">✦ Try the Concept</button>
+          <a href="mailto:hello@triptailor.app" class="btn-outline-light">Send us feedback</a>
+        </div>
+        <div class="pc2-note">🎓 University of Toronto · Design + Technology</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-label reveal-up">Honest Answers · Potential Concerns</div>
+    <h2 class="section-title reveal-up">
+      Fair questions.<br>
+      <em>Straight answers.</em>
+    </h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal-up" style="--d:0s">
+        <button class="faq-q" aria-expanded="false">
+          <span>Isn't this just another travel app?</span>
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          <p>That's a fair question — and the honest answer is: kind of, but not quite. Most travel apps tell you about places. TripTailor takes your list of places and helps you actually <em>plan</em> around them — with budget, transit, and food all integrated. The problem isn't that there's too few travel apps. It's that none of them do the planning for you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up" style="--d:.06s">
+        <button class="faq-q" aria-expanded="false">
+          <span>Why not just use Google Maps and social media separately?</span>
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          <p>You absolutely can — and most people do. But Google Maps doesn't know your budget, and social media doesn't give you transit times. TripTailor isn't about replacing those tools; it's about connecting them in a way that saves you an hour of manual work before a day out.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up" style="--d:.12s">
+        <button class="faq-q" aria-expanded="false">
+          <span>Can AI-generated routes really be trusted?</span>
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          <p>TripTailor is a planning assistant, not an authority. Every route shows you how it was built — commute times come from real transit data, costs are estimates, and you can edit or remove any stop. Think of it as a 80% head start, not the final word. You're always in control.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up" style="--d:.18s">
+        <button class="faq-q" aria-expanded="false">
+          <span>Will it just recommend tourist traps?</span>
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          <p>This is something we think about a lot. Our curation approach actively tries to surface local spots — independent restaurants, neighbourhood markets, community events — alongside major attractions. We're also exploring ways to give local businesses fair visibility rather than just pushing well-known names. It's a design challenge we're actively working on.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up" style="--d:.24s">
+        <button class="faq-q" aria-expanded="false">
+          <span>What about privacy? What data does it collect?</span>
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          <p>Privacy is a core design consideration, not an afterthought. The concept is built around minimal data collection — your saved routes and preferences stay on-device by default. As a university project, we're committed to privacy-by-design principles. Any data features in a future product would be opt-in and clearly explained.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up" style="--d:.30s">
+        <button class="faq-q" aria-expanded="false">
+          <span>Is this a real app I can download?</span>
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          <p>Not yet — TripTailor is currently a university project prototype. What you're seeing is a high-fidelity demonstration of the concept and how it could work. We're being transparent about that. If there's genuine public interest and the project develops beyond the classroom, we'll be open about what comes next. Your feedback on this page is exactly what helps us understand whether that's worthwhile.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up" style="--d:.36s">
+        <button class="faq-q" aria-expanded="false">
+          <span>I live here already — is this actually useful for locals?</span>
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          <p>Most of our user research has been with locals and students — not tourists. TripTailor is often <em>more</em> useful for people who know a city but haven't explored it fully. If you're trying to make better use of your weekends, discover new neighbourhoods, or host visiting family without spending hours on Google, it's designed exactly for that.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FINAL CTA ══════ -->
+<section class="final-cta" id="participate">
+  <div class="fc-blobs">
+    <div class="fc-blob fb1"></div>
+    <div class="fc-blob fb2"></div>
+  </div>
+  <div class="container">
+    <div class="fc-inner">
+      <div class="section-label light reveal-up">Get Involved</div>
+      <h2 class="fc-title reveal-up">
+        Help us build something<br>
+        <em>that actually helps.</em>
+      </h2>
+      <p class="fc-sub reveal-up">
+        We're not asking you to sign up for a product. We're asking for your honest feedback on a problem that affects a lot of people. If trip planning has ever frustrated you, we want to hear about it.
+      </p>
+
+      <div class="fc-actions reveal-up">
+        <a href="#engage" class="btn-primary btn-lg">✦ Vote on your biggest challenge</a>
+        <a href="mailto:hello@triptailor.app" class="btn-ghost-light">Send us your thoughts →</a>
+      </div>
+
+      <div class="fc-form-wrap reveal-up" id="fc-form-wrap">
+        <div class="fc-form-label">Or leave your contact if you'd like to be part of our pilot community:</div>
+        <form class="fc-form" id="fc-form">
+          <div class="fc-fields">
+            <input type="text" placeholder="Your name (optional)" id="fc-name"/>
+            <input type="email" placeholder="Email address" id="fc-email" required/>
+            <select id="fc-role">
+              <option value="">I am a…</option>
+              <option value="student">Student</option>
+              <option value="professional">Young professional</option>
+              <option value="family">Parent / family traveller</option>
+              <option value="local">Local explorer</option>
+              <option value="visitor">Visitor to the city</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Join our pilot community</button>
+        </form>
+        <div class="fc-form-success hidden" id="fc-form-success">
+          <div class="fcs-icon">🙌</div>
+          <div class="fcs-title">You're in!</div>
+          <div class="fcs-sub">Thank you for your interest. We'll be in touch — and we'll actually read everything you've shared.</div>
+        </div>
+        <div class="fc-form-note">We won't spam you. This is a university project, not a mailing list.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-mark">✦</span> TripTailor</div>
+        <p>A student-built concept for AI-assisted travel planning — designed to make exploring your city easier, more affordable, and less stressful.</p>
+        <div class="footer-badges">
+          <span>🎓 University Project</span>
+          <span>🏙 Toronto, Canada</span>
+          <span>💚 Not a commercial product</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <div class="fl-title">Sections</div>
+          <a href="#problem">The Problem</a>
+          <a href="#who">Who It's For</a>
+          <a href="#solution">The Solution</a>
+          <a href="#features">App Screens</a>
+        </div>
+        <div class="fl-col">
+          <div class="fl-title">Engage</div>
+          <a href="#social">Stories</a>
+          <a href="#engage">Share Your View</a>
+          <a href="#faq">FAQ</a>
+          <a href="#participate">Get Involved</a>
+        </div>
+        <div class="fl-col">
+          <div class="fl-title">Contact</div>
+          <a href="mailto:hello@triptailor.app">hello@triptailor.app</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TripTailor · University Project Prototype · Built with care in Toronto</p>
+      <p>This is a student design prototype and not a commercially available product.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

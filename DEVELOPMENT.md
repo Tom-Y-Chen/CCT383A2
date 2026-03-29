@@ -2,9 +2,36 @@
 
 ## 项目概述
 **项目名称**: CCT383 App - 一站式旅行规划平台  
-**版本**: v0.1.0 (Static Demo)  
+**版本**: v0.1.1 (Static Demo)  
 **更新日期**: 2026-03-19  
 **项目类型**: 静态 HTML/CSS Demo 展示
+
+---
+
+## 📝 开发日志 (Development Log)
+
+### 2026-03-19 15:45 - Feature
+- **内容**: 添加底部导航栏可点击功能，实现四个页面之间的导航
+- **涉及文件**: 
+  - `pages/discover.html` - Tab Bar  items 添加 `<a>` 标签
+  - `pages/mapping.html` - Tab Bar items 添加 `<a>` 标签
+  - `pages/routes.html` - Tab Bar items 添加 `<a>` 标签
+  - `pages/community.html` - Tab Bar items 添加 `<a>` 标签
+  - `css/overall-layout.css` - 优化链接样式和 hover 效果
+- **状态**: ✅ 已完成
+
+### 2026-03-19 16:00 - Feature
+- **内容**: 创建 GitHub Pages 入口页面
+- **涉及文件**: 
+  - `index.html` - 新建自动重定向和欢迎页面
+- **状态**: ✅ 已完成
+- **特殊功能**: ⚡ **Auto Redirect** - 使用 meta refresh 和 JavaScript 双重机制实现 1.5 秒后自动跳转
+
+### 2026-03-19 16:15 - Docs
+- **内容**: 建立开发文档更新规范，强制要求每次代码更改同步更新 DEVELOPMENT.md
+- **涉及文件**: 
+  - `DEVELOPMENT.md` - 添加开发日志和规范说明
+- **状态**: ✅ 已完成
 
 ---
 
@@ -123,6 +150,7 @@
 - [x] 激活状态指示 (高亮颜色)
 - [x] 悬停过渡效果
 - [x] 安全区域适配 (safe-area-inset-bottom)
+- [x] 可点击链接实现 ⚡ **Page Navigation** - 使用 `<a>` 标签包裹每个 tab item，实现页面间跳转 (2026-03-19 15:45)
 
 ### 6. 搜索栏组件
 - [x] 搜索图标 (SVG)
@@ -141,6 +169,13 @@
   - 已实现功能清单
   - 待开发功能规划
   - 技术规范
+  - **新增**: 开发日志记录规范 (2026-03-19 16:15)
+
+### 8. GitHub Pages 部署 ⚡ **Deployment Ready**
+- [x] index.html 入口页面创建
+  - 自动重定向到 Discover 页面 ⚡ **Auto Redirect** - meta refresh + JavaScript 双重机制 (2026-03-19 16:00)
+  - 美观的欢迎界面和加载动画
+  - 手动进入按钮
 
 ---
 
@@ -321,22 +356,110 @@ styles/
 
 ---
 
-## 🎯 下一步行动计划 (Next Steps)
+## 📝 开发文档更新规范 (Development Documentation Update Rules) ⚡ **Mandatory**
 
-### 立即执行 (This Week)
-1. [ ] 完成 Discover 页面的 Activity Card 基础样式
-2. [ ] 实现图片 Marquee 滚动效果
-3. [ ] 添加示例数据和占位图片
+### 强制要求 (Mandatory Requirements)
 
-### 短期计划 (This Month)
-1. [ ] 完成四个页面的基础内容填充
-2. [ ] 实现主要的交互动画
-3. [ ] 完善组件库建设
+**每次代码更改必须同步更新 DEVELOPMENT.md 文件！**
 
-### 中期计划 (Next Quarter)
-1. [ ] 实现所有核心功能样式
-2. [ ] 进行视觉细节打磨
-3. [ ] 完成多设备适配测试
+### 更新流程 (Update Workflow)
+
+1. **添加开发日志条目** (在"开发日志"章节最上方):
+   ````
+   ### YYYY-MM-DD HH:MM - Type
+   - **内容**: 清晰描述更改内容
+   - **涉及文件**: 
+     - `path/to/file1` - 说明修改了什么
+     - `path/to/file2` - 说明修改了什么
+   - **状态**: ✅ 已完成
+   - **特殊功能**: ⚡ **Feature Name** - 详细说明 (如有)
+   ```
+
+2. **勾选功能清单**:
+   - 在"已实现功能"章节找到对应项
+   - 将 `[ ]` 改为 `[x]`
+   - 添加时间戳和说明
+
+3. **标注特殊功能**:
+   - 使用 ⚡ 符号标记特殊功能类型
+   - 常见特殊功能标注:
+     - ⚡ **Hero Animation** - 共享元素转场动画
+     - ⚡ **Marquee Effect** - 自动滚动效果
+     - ⚡ **Infinite Scroll** - 无限滚动加载
+     - ⚡ **Gesture Control** - 手势交互控制
+     - ⚡ **Real-time Update** - 实时更新功能
+     - ⚡ **Smart Algorithm** - 智能算法 (如路径优化)
+     - ⚡ **Social Matching** - 社交匹配逻辑
+     - ⚡ **Geo-fencing** - 地理围栏功能
+     - ⚡ **Modal Transition** - 模态转场动画
+     - ⚡ **Drag & Drop** - 拖拽排序功能
+     - ⚡ **Auto Redirect** - 自动重定向机制
+     - ⚡ **Page Navigation** - 页面跳转功能
+     - ⚡ **Deployment Ready** - 部署相关功能
+
+### 示例 (Example)
+
+```
+### 2026-03-19 16:00 - Feature
+- **内容**: 创建 GitHub Pages 入口页面
+- **涉及文件**: 
+  - `index.html` - 新建自动重定向和欢迎页面
+- **状态**: ✅ 已完成
+- **特殊功能**: ⚡ **Auto Redirect** - 使用 meta refresh 和 JavaScript 双重机制实现 1.5 秒后自动跳转
+```
+
+### 违规处理 (Violation Handling)
+
+- ❌ 发现未更新的开发文档，需在下次提交时补充完整
+- ❌ 重要功能未标注特殊属性的，需及时补充标注
+- ✅ 良好的文档习惯 = 成功的开发一半
+
+---
+
+## 📋 技术规范 (Technical Specifications)
+
+### CSS 命名规范
+```css
+/* BEM 命名约定 */
+.block {}
+.block__element {}
+.block--modifier {}
+
+/* 示例 */
+.card {}
+.card__title {}
+.card--featured {}
+```
+
+### 颜色使用规范
+- 主色调：`var(--color-primary)` (#4A90E2)
+- 辅助色：`var(--color-secondary)` (#50E3C2)
+- 强调色：`var(--color-accent)` (#F5A623)
+- 文字色：`var(--color-text)` / `var(--color-text-light)`
+- 背景色：`var(--color-background)` / `var(--color-surface)`
+
+### 间距使用规范
+- 极小：`var(--spacing-xs)` (4px)
+- 小：`var(--spacing-sm)` (8px)
+- 中：`var(--spacing-md)` (16px)
+- 大：`var(--spacing-lg)` (24px)
+- 超大：`var(--spacing-xl)` (32px)
+
+### 文件组织规范
+```
+css/
+  ├── variables.css      # 只包含 CSS 变量
+  ├── reset.css          # 只包含重置样式
+  ├── overall-layout.css # 全局布局
+  ├── components.css     # 通用组件
+  └── main.css          # 导入以上所有文件
+
+styles/
+  ├── discover.css      # Discover 页面专属样式
+  ├── mapping.css       # Mapping 页面专属样式
+  ├── routes.css        # Routes 页面专属样式
+  └── community.css     # Community 页面专属样式
+```
 
 ---
 
