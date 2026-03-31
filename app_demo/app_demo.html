@@ -8,10 +8,74 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      background: #f8faf8;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .home-logo {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      border: none;
+      border-radius: var(--rp);
+      padding: 8px 16px;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--s1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      transition: all 0.2s ease;
+    }
+    
+    .home-logo:hover {
+      background: rgba(255, 255, 255, 1);
+      color: var(--mint-dk);
+      box-shadow: var(--s2);
+      transform: translateY(-2px);
+    }
+    
+    .logo-mark {
+      font-size: 18px;
+      margin-right: 6px;
+    }
+    
+    /* Adjust phone shell container to show full borders */
+    .phone-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 80px 20px 40px;
+      box-sizing: border-box;
+    }
+    
+    .phone-shell {
+      max-width: calc(100% - 40px);
+      height: auto;
+      aspect-ratio: 390 / 844;
+    }
+  </style>
 </head>
 <body>
 
-<div class="phone-shell">
+<a href="../web/web_page.html" class="home-logo">
+  <span class="logo-mark">✦</span>TripTailor
+</a>
+
+<div class="phone-container">
+  <div class="phone-shell">
   <div id="app">
 
     <!-- ── STATUS BAR ── -->
@@ -266,7 +330,7 @@
         <span>Routes</span>
       </button>
       <button class="tb" data-tab="community">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M17 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         <span>People</span>
       </button>
     </nav>
@@ -321,7 +385,8 @@
     <div class="toast" id="toast"></div>
 
   </div><!-- /app -->
-</div><!-- /phone-shell -->
+  </div><!-- /phone-shell -->
+</div><!-- /phone-container -->
 
 <script src="script.js"></script>
 </body>

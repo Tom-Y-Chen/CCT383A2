@@ -8,6 +8,74 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet"/>
+  <style>
+    .home-btn {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      border: none;
+      border-radius: var(--rp);
+      padding: 8px 16px;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--s1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      transition: all 0.2s ease;
+    }
+    
+    .home-btn:hover {
+      background: rgba(255, 255, 255, 1);
+      color: var(--mint-dk);
+      box-shadow: var(--s2);
+      transform: translateY(-2px);
+    }
+    
+    .logo-mark {
+      font-size: 18px;
+      margin-right: 6px;
+    }
+    
+    .replay-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 600;
+      background: white;
+      color: var(--text);
+      border: 1.5px solid var(--sep);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: var(--s2);
+      transition: all 0.2s ease;
+      z-index: 1000;
+    }
+    
+    .replay-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--s3);
+    }
+    
+    .replay-btn:active {
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
@@ -395,6 +463,9 @@
 
 <!-- Replay button -->
 <button class="replay-btn" id="replay-btn" aria-label="Replay">↺ Replay</button>
+<a href="../web/web_page.html" class="home-btn" aria-label="Home">
+  <span class="logo-mark">✦</span>TripTailor
+</a>
 
 <script src="script.js"></script>
 </body>
