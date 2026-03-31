@@ -9,44 +9,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet"/>
   <style>
-    .back-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
+    .home-logo {
+      position: fixed;
+      top: 24px;
+      left: 24px;
       background: rgba(255, 255, 255, 0.9);
-      color: #0d0d0d;
+      color: var(--text);
       border: none;
-      border-radius: 20px;
+      border-radius: var(--rp);
       padding: 8px 16px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      box-shadow: var(--s1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       z-index: 1000;
+      transition: all 0.2s ease;
     }
     
-    .back-button:hover {
+    .home-logo:hover {
       background: rgba(255, 255, 255, 1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      color: var(--mint-dk);
+      box-shadow: var(--s2);
+      transform: translateY(-2px);
     }
     
-    .back-button svg {
-      width: 16px;
-      height: 16px;
+    .logo-mark {
+      font-size: 18px;
+      margin-right: 6px;
     }
   </style>
 </head>
 <body>
 
-<a href="../web/web_page.html" class="back-button">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <polyline points="15 18 9 12 15 6"/>
-  </svg>
-  Back
+<a href="../web/web_page.html" class="home-logo">
+  <span class="logo-mark">✦</span>TripTailor
 </a>
 
 <div class="phone-shell">
