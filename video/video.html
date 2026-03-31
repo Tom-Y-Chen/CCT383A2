@@ -8,6 +8,48 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet"/>
+  <style>
+    .home-btn, .replay-btn {
+      position: fixed;
+      bottom: 24px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: var(--s2);
+      transition: all 0.2s ease;
+      z-index: 1000;
+    }
+    
+    .replay-btn {
+      right: 24px;
+      background: white;
+      color: var(--text);
+      border: 1.5px solid var(--sep);
+    }
+    
+    .home-btn {
+      left: 24px;
+      background: var(--mint);
+      color: white;
+    }
+    
+    .replay-btn:hover, .home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--s3);
+    }
+    
+    .replay-btn:active, .home-btn:active {
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
@@ -395,6 +437,7 @@
 
 <!-- Replay button -->
 <button class="replay-btn" id="replay-btn" aria-label="Replay">↺ Replay</button>
+<a href="../web/web_page.html" class="home-btn" aria-label="Home">Home</a>
 
 <script src="script.js"></script>
 </body>
