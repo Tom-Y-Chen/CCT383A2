@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TripTailor — Course Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0b0d10;
+  --surface:   #13161c;
+  --surface2:  #1b1f27;
+  --border:    rgba(255,255,255,0.07);
+  --accent:    #6ee7b7;
+  --accent2:   #38bdf8;
+  --accent3:   #f472b6;
+  --txt:       #e8eaf0;
+  --txt2:      #8b91a0;
+  --card-h:    460px;
+  --phone-w:   220px;
+  --phone-h:   440px;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--txt);
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+}
+
+/* ─── LAYOUT ─── */
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  grid-template-rows: 56px 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ─── HEADER ─── */
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(11,13,16,0.9);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+}
+.header-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.logo-spark { color: var(--accent); font-size: 14px; }
+.header-divider { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+.header-label {
+  font-size: 12px;
+  color: var(--txt2);
+  letter-spacing: 0.04em;
+}
+.header-badge {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--accent);
+  background: rgba(110,231,183,0.1);
+  border: 1px solid rgba(110,231,183,0.25);
+  border-radius: 20px;
+  padding: 3px 11px;
+  letter-spacing: 0.05em;
+}
+
+/* ─── LEFT PANEL ─── */
+.left-panel {
+  border-right: 1px solid var(--border);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  background: var(--surface);
+}
+
+.panel-title {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--txt2);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  padding-left: 2px;
+}
+
+/* ─── CONCEPT CARDS ─── */
+.concept-card {
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  background: var(--surface2);
+  transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.concept-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+.concept-card:hover { transform: translateY(-1px); }
+.concept-card.active {
+  border-color: var(--card-accent);
+  box-shadow: 0 0 0 1px var(--card-accent), 0 8px 32px rgba(0,0,0,0.4);
+}
+.concept-card.active::before { opacity: 1; }
+
+.c1 { --card-accent: var(--accent); }
+.c1::before { background: radial-gradient(ellipse at top left, rgba(110,231,183,0.08), transparent 65%); }
+
+.c2 { --card-accent: var(--accent2); }
+.c2::before { background: radial-gradient(ellipse at top left, rgba(56,189,248,0.08), transparent 65%); }
+
+.c3 { --card-accent: var(--accent3); }
+.c3::before { background: radial-gradient(ellipse at top left, rgba(244,114,182,0.08), transparent 65%); }
+
+.card-num {
+  font-family: 'Fraunces', serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--card-accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 9px;
+  color: #fff;
+}
+.card-body {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--txt2);
+}
+.card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--card-accent);
+  background: color-mix(in srgb, var(--card-accent) 12%, transparent);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-weight: 500;
+}
+.card-arrow {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--txt2);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.concept-card.active .card-arrow {
+  border-color: var(--card-accent);
+  color: var(--card-accent);
+  background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+}
+
+/* Progress indicator row */
+.progress-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s, width 0.3s;
+}
+.dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+
+/* ─── RIGHT PANEL ─── */
+.right-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 60% 40%, rgba(110,231,183,0.04) 0%, transparent 60%),
+              radial-gradient(ellipse at 30% 70%, rgba(56,189,248,0.04) 0%, transparent 50%),
+              var(--bg);
+}
+
+/* Subtle grid bg */
+.right-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.concept-title-overlay {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  right: 32px;
+}
+.cto-num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.cto-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+}
+.cto-sub {
+  font-size: 12.5px;
+  color: var(--txt2);
+  margin-top: 6px;
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+/* ─── PHONE SHELL ─── */
+.phone-wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: 30px;
+}
+
+.phone {
+  width: var(--phone-w);
+  height: var(--phone-h);
+  background: #0f1117;
+  border-radius: 34px;
+  border: 2px solid rgba(255,255,255,0.13);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 24px 64px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 22px;
+  background: #0f1117;
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.notch-cam {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #1a1d24;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.phone-screen {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 32px;
+  position: relative;
+  background: #111318;
+}
+
+/* ─── ANIMATION FRAMES ─── */
+.anim-frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  overflow: hidden;
+  border-radius: 32px;
+}
+.anim-frame.showing { opacity: 1; z-index: 2; }
+.anim-frame.hiding  { opacity: 0; z-index: 1; }
+
+/* shared phone UI pieces */
+.ph-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px 4px;
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  z-index: 5;
+}
+.ph-status-time { font-size: 10px; font-weight: 700; }
+
+.ph-tabbar {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  height: 42px;
+  background: rgba(15,17,23,0.97);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 4px;
+  z-index: 10;
+}
+.ph-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 8px;
+  color: var(--txt2);
+  flex: 1;
+  padding: 4px 0;
+}
+.ph-tab.active { color: var(--accent); }
+.ph-tab-icon { font-size: 12px; }
+
+/* ════ FRAME 1: HOME ════ */
+#f-home {
+  background: linear-gradient(160deg, #111318 0%, #0f1117 100%);
+}
+.f-home-inner {
+  padding: 22px 14px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: scrollDown 3s ease-in-out infinite alternate;
+}
+@keyframes scrollDown {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-60px); }
+}
+.f-greeting { font-size: 9px; color: var(--txt2); }
+.f-title { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700; color: #fff; line-height: 1.2; }
+.f-ai-bar {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 8px 11px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9px;
+  color: var(--txt2);
+}
+.f-spark { color: var(--accent); font-size: 10px; }
+.f-ai-text { flex: 1; }
+.f-ai-go {
+  background: var(--accent);
+  color: #0b0d10;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 8px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.f-section-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--txt);
+  margin-top: 4px;
+}
+.f-see-all { color: var(--accent); font-size: 8px; }
+
+.f-suggest-row {
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+}
+.f-sug-card {
+  flex: 0 0 96px;
+  height: 72px;
+  border-radius: 10px;
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.f-sug-emoji { font-size: 16px; }
+.f-sug-name { font-size: 8px; font-weight: 600; color: var(--txt); }
+.f-sug-tag { font-size: 7px; color: var(--txt2); }
+
+.f-ev-card {
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.f-ev-dot { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.f-ev-name { font-size: 9px; font-weight: 600; color: var(--txt); }
+.f-ev-meta { font-size: 7px; color: var(--txt2); margin-top: 2px; }
+
+/* ════ FRAME 2: DISCOVER ════ */
+#f-discover {
+  background: #111318;
+}
+.f-disc-inner {
+  padding: 16px 14px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.f-disc-title { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700; color: #fff; }
+.f-chips {
+  display: flex;
+  gap: 5px;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+.f-chip {
+  font-size: 8px;
+  padding: 4px 9px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--txt2);
+  white-space: nowrap;
+  background: transparent;
+}
+.f-chip.active {
+  background: var(--accent);
+  color: #0b0d10;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.f-disc-card {
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.f-disc-card.highlighted { border-color: var(--accent); }
+.f-disc-img {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.f-disc-body { padding: 8px 10px; }
+.f-disc-name { font-size: 9.5px; font-weight: 600; color: var(--txt); }
+.f-disc-meta { font-size: 7.5px; color: var(--txt2); margin-top: 2px; }
+.f-disc-add {
+  margin-top: 6px;
+  font-size: 7.5px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+.f-disc-check { display: none; }
+.f-disc-card.highlighted .f-disc-add { display: none; }
+.f-disc-card.highlighted .f-disc-check { display: flex; align-items: center; gap: 4px; font-size: 7.5px; color: var(--accent); font-weight: 600; margin-top: 6px; }
+
+/* ════ FRAME 3: MAP ════ */
+#f-map { background: #111318; }
+.f-map-inner {
+  padding: 14px 12px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+.f-map-title { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 700; color: #fff; }
+.f-map-canvas {
+  flex: 1;
+  background: #1a2030;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  min-height: 0;
+}
+.map-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.map-road {
+  position: absolute;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px;
+}
+.r1 { width: 70%; height: 2px; top: 35%; left: 10%; }
+.r2 { width: 70%; height: 2px; top: 62%; left: 15%; }
+.r3 { width: 2px; height: 60%; top: 15%; left: 30%; }
+.r4 { width: 2px; height: 55%; top: 20%; left: 65%; }
+
+.map-pin {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.map-pin.pulse .pin-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--pin-color);
+  animation: pinPulse 1.5s ease-out infinite;
+}
+@keyframes pinPulse {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.pin-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--pin-color, var(--accent));
+  border: 2px solid rgba(255,255,255,0.25);
+  position: relative;
+  transition: transform 0.2s;
+}
+.map-pin.selected .pin-dot { transform: scale(1.3); }
+.pin-label {
+  font-size: 7px;
+  color: #fff;
+  background: rgba(0,0,0,0.7);
+  padding: 2px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-top: 3px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.map-route-line {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.map-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15,17,23,0.9);
+  border-radius: 10px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.map-sel-info { font-size: 8px; color: var(--txt2); }
+.map-plan-btn {
+  font-size: 8px;
+  background: var(--accent);
+  color: #0b0d10;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+}
+.map-plan-btn.hidden-btn { opacity: 0; pointer-events: none; }
+
+/* ════ FRAME 4: PLAN ROUTE ════ */
+#f-plan { background: #111318; }
+.f-plan-inner {
+  padding: 12px 12px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  overflow: hidden;
+}
+.f-plan-hdr {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.f-back-btn {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--txt2);
+}
+.f-plan-title { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 700; color: #fff; }
+.f-plan-save { margin-left: auto; font-size: 8px; color: var(--accent); font-weight: 600; }
+
+.f-ctrl-card {
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 11px;
+  padding: 10px;
+}
+.f-ctrl-lbl { font-size: 8px; color: var(--txt2); margin-bottom: 3px; }
+.f-ctrl-val {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+  transition: color 0.4s;
+}
+.f-slider-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.f-slider-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.8s ease-in-out;
+}
+.f-slider-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--accent);
+  transition: left 0.8s ease-in-out;
+}
+
+.f-tmode-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}
+.f-tmode {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 7px;
+  padding: 5px 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 8px;
+  color: var(--txt2);
+  transition: all 0.25s;
+}
+.f-tmode.active {
+  background: rgba(110,231,183,0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.f-tmode-icon { font-size: 12px; }
+
+.f-stops-hdr {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--txt);
+  display: flex;
+  justify-content: space-between;
+}
+.f-stops-hdr span:last-child { color: var(--accent); font-size: 8px; }
+
+.f-stop-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 9px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  color: var(--txt);
+}
+.f-stop-num {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #0b0d10;
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.f-stop-name { flex: 1; font-size: 8.5px; }
+.f-stop-time { font-size: 7px; color: var(--txt2); }
+
+.f-summary-card {
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 11px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.f-sum-item { text-align: center; }
+.f-sum-val { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 700; color: #fff; }
+.f-sum-lbl { font-size: 7px; color: var(--txt2); margin-top: 2px; }
+.f-sum-div { width: 1px; height: 28px; background: rgba(255,255,255,0.1); }
+
+.f-plan-acts {
+  display: flex;
+  gap: 7px;
+}
+.f-act-sec {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 9px;
+  padding: 8px;
+  font-size: 8px;
+  text-align: center;
+  color: var(--txt2);
+}
+.f-act-pri {
+  flex: 1.4;
+  background: var(--accent);
+  color: #0b0d10;
+  border-radius: 9px;
+  padding: 8px;
+  font-size: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ════ FRAME 5: GUIDE ════ */
+#f-guide { background: #0d0f14; }
+.f-guide-inner {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.f-guide-hdr {
+  background: rgba(110,231,183,0.08);
+  border-bottom: 1px solid rgba(110,231,183,0.12);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.f-guide-exit { font-size: 8px; color: rgba(255,255,255,0.5); }
+.f-guide-name { font-family: 'Fraunces', serif; font-size: 13px; font-weight: 700; color: #fff; text-align: center; }
+.f-guide-prog { font-size: 7.5px; color: var(--accent); text-align: center; margin-top: 1px; }
+.f-guide-nav {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.f-guide-cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+  padding: 12px;
+  position: relative;
+}
+.f-guide-card {
+  position: absolute;
+  left: 12px; right: 12px;
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 12px;
+  transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.f-guide-card.current {
+  top: 10px;
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  z-index: 3;
+  border-color: rgba(110,231,183,0.25);
+  background: linear-gradient(135deg, rgba(110,231,183,0.06), var(--surface2));
+}
+.f-guide-card.behind1 {
+  top: 10px;
+  transform: scale(0.94) translateY(14px);
+  opacity: 0.6;
+  z-index: 2;
+}
+.f-guide-card.behind2 {
+  top: 10px;
+  transform: scale(0.88) translateY(28px);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.f-gc-stop {
+  font-size: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.f-gc-emoji { font-size: 26px; margin-bottom: 8px; }
+.f-gc-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.f-gc-meta { font-size: 8px; color: var(--txt2); line-height: 1.5; }
+.f-gc-tags { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
+.f-gc-tag {
+  font-size: 7px;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.07);
+  color: var(--txt2);
+}
+
+.f-guide-suggestion {
+  margin: 0 12px 8px;
+  background: rgba(56,189,248,0.08);
+  border: 1px solid rgba(56,189,248,0.2);
+  border-radius: 11px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.f-gsug-icon { font-size: 16px; }
+.f-gsug-title { font-size: 8.5px; font-weight: 600; color: #fff; }
+.f-gsug-sub { font-size: 7px; color: var(--txt2); }
+.f-gsug-btns { margin-left: auto; display: flex; gap: 5px; }
+.f-gsug-skip { font-size: 7.5px; color: var(--txt2); background: rgba(255,255,255,0.07); border: none; border-radius: 6px; padding: 3px 8px; font-family: 'DM Sans'; }
+.f-gsug-go { font-size: 7.5px; color: #0b0d10; background: var(--accent2); border: none; border-radius: 6px; padding: 3px 8px; font-weight: 700; font-family: 'DM Sans'; }
+
+.f-guide-foot {
+  padding: 8px 12px 12px;
+}
+.f-guide-next {
+  width: 100%;
+  background: var(--accent);
+  color: #0b0d10;
+  border: none;
+  border-radius: 11px;
+  padding: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── PHONE GLOW ─── */
+.phone-glow {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--glow-color, rgba(110,231,183,0.15));
+  filter: blur(24px);
+  transition: background 0.6s;
+  pointer-events: none;
+}
+
+/* ─── STEP INDICATOR ─── */
+.step-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.step-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s;
+}
+.step-dot.active {
+  background: var(--accent);
+  width: 16px;
+  border-radius: 3px;
+}
+
+/* ─── SIDE LABELS ─── */
+.side-label {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 5;
+}
+.sl-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  transition: color 0.3s;
+}
+.sl-item.active { color: var(--accent); }
+.sl-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ─── SCROLLBAR ─── */
+.left-panel::-webkit-scrollbar { width: 4px; }
+.left-panel::-webkit-scrollbar-track { background: transparent; }
+.left-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+
+/* ─── UTIL ─── */
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-logo">
+      <span class="logo-spark">✦</span> TripTailor
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-label">Course Concepts Showcase</div>
+    <div class="header-badge">Presentation Mode</div>
+  </header>
+
+  <!-- LEFT PANEL -->
+  <aside class="left-panel">
+    <div class="panel-title">Course Connections</div>
+
+    <!-- Card 1 -->
+    <div class="concept-card c1 active" data-concept="1" onclick="selectConcept(1)">
+      <div class="card-num">Concept 01</div>
+      <div class="card-title">Reducing Algorithmic Control</div>
+      <div class="card-body">
+        Travel discovery is dominated by curated feeds that feel empowering but hide algorithmic bias. TripTailor replaces ranked lists with a <strong style="color:#e8eaf0">map interface</strong> — giving users spatial freedom to explore on their own terms, not the platform's.
+      </div>
+      <div class="card-tag">🗺 Map-first exploration</div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="concept-card c2" data-concept="2" onclick="selectConcept(2)">
+      <div class="card-num">Concept 02</div>
+      <div class="card-title">Socio-Technical Systems</div>
+      <div class="card-body">
+        This is not just an interface problem. TripTailor weaves together <strong style="color:#e8eaf0">local knowledge, urban mobility, budgeting, platform discovery,</strong> and user behavior into a single, coherent design challenge.
+      </div>
+      <div class="card-tag">⚙️ Systems thinking</div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="concept-card c3" data-concept="3" onclick="selectConcept(3)">
+      <div class="card-num">Concept 03</div>
+      <div class="card-title">Affordances</div>
+      <div class="card-body">
+        Every action — browsing, adding stops, viewing budgets, comparing transport, following a guide — is designed to feel <strong style="color:#e8eaf0">immediately visible and understandable</strong> without instruction.
+      </div>
+      <div class="card-tag">👁 Perceived affordances</div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <!-- Progress dots -->
+    <div class="progress-dots" id="progress-dots">
+      <div class="dot active" id="pd-1"></div>
+      <div class="dot" id="pd-2"></div>
+      <div class="dot" id="pd-3"></div>
+      <div class="dot" id="pd-4"></div>
+      <div class="dot" id="pd-5"></div>
+    </div>
+  </aside>
+
+  <!-- RIGHT PANEL -->
+  <main class="right-panel" id="right-panel">
+
+    <!-- Concept title overlay -->
+    <div class="concept-title-overlay" id="cto">
+      <div class="cto-num" id="cto-num" style="color: var(--accent)">01 — Algorithmic Control</div>
+      <div class="cto-title" id="cto-title">From curated feeds<br>to open exploration</div>
+      <div class="cto-sub" id="cto-sub">Users feel empowered by inspiration but remain dependent on platform visibility. The map interface returns agency to the explorer.</div>
+    </div>
+
+    <!-- Phone -->
+    <div class="phone-wrap">
+      <div class="phone" id="phone">
+        <div class="phone-notch">
+          <div class="notch-cam"></div>
+        </div>
+        <div class="phone-screen" id="phone-screen">
+
+          <!-- ── FRAME 1: HOME ── -->
+          <div class="anim-frame showing" id="f-home">
+            <div class="ph-status">
+              <span class="ph-status-time">9:41</span>
+              <span style="font-size:8px">●●● 🔋</span>
+            </div>
+            <div class="f-home-inner">
+              <div>
+                <div class="f-greeting">Good morning ☀️</div>
+                <div class="f-title">Where to, Alex?</div>
+              </div>
+              <div class="f-ai-bar">
+                <span class="f-spark">✦</span>
+                <span class="f-ai-text" id="ai-type-text">Plan a day in Toronto…</span>
+                <button class="f-ai-go">Go</button>
+              </div>
+              <div class="f-section-hdr">
+                <span>Suggested for You</span>
+                <span class="f-see-all">See all</span>
+              </div>
+              <div class="f-suggest-row">
+                <div class="f-sug-card">
+                  <div class="f-sug-emoji">🗼</div>
+                  <div><div class="f-sug-name">CN Tower</div><div class="f-sug-tag">Iconic · $43</div></div>
+                </div>
+                <div class="f-sug-card">
+                  <div class="f-sug-emoji">🎨</div>
+                  <div><div class="f-sug-name">AGO</div><div class="f-sug-tag">Culture · Free Fri</div></div>
+                </div>
+              </div>
+              <div class="f-section-hdr" style="margin-top:4px">
+                <span>Happening in Toronto</span>
+              </div>
+              <div class="f-ev-card">
+                <div class="f-ev-dot" style="background:rgba(110,231,183,0.1)">🎭</div>
+                <div><div class="f-ev-name">Distillery Night Market</div><div class="f-ev-meta">Tonight · Free · 1.2 km away</div></div>
+              </div>
+              <div class="f-ev-card">
+                <div class="f-ev-dot" style="background:rgba(56,189,248,0.1)">🍜</div>
+                <div><div class="f-ev-name">Kensington Food Tour</div><div class="f-ev-meta">Sat · $25 · Local guide</div></div>
+              </div>
+              <div class="f-ev-card">
+                <div class="f-ev-dot" style="background:rgba(244,114,182,0.1)">🌿</div>
+                <div><div class="f-ev-name">High Park Morning Walk</div><div class="f-ev-meta">Sun 8am · Free · 3.4 km</div></div>
+              </div>
+            </div>
+            <div class="ph-tabbar">
+              <div class="ph-tab active"><div class="ph-tab-icon">🏠</div><div>Home</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">✦</div><div>Discover</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon" style="background:var(--accent);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;margin:0 auto;">🗺</div><div>Map</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">📁</div><div>Routes</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">👥</div><div>People</div></div>
+            </div>
+          </div>
+
+          <!-- ── FRAME 2: DISCOVER ── -->
+          <div class="anim-frame" id="f-discover">
+            <div class="ph-status">
+              <span class="ph-status-time">9:41</span>
+              <span style="font-size:8px">●●● 🔋</span>
+            </div>
+            <div class="f-disc-inner">
+              <div class="f-disc-title">Discover</div>
+              <div class="f-chips">
+                <div class="f-chip active" id="disc-chip-all">All</div>
+                <div class="f-chip" id="disc-chip-food">Food</div>
+                <div class="f-chip" id="disc-chip-fest">Festival</div>
+                <div class="f-chip" id="disc-chip-art">Art</div>
+                <div class="f-chip" id="disc-chip-culture">Culture</div>
+              </div>
+              <div class="f-disc-card" id="disc-card-1">
+                <div class="f-disc-img" style="background:linear-gradient(135deg,rgba(110,231,183,0.1),rgba(56,189,248,0.08))">🎭</div>
+                <div class="f-disc-body">
+                  <div class="f-disc-name">Distillery Night Market</div>
+                  <div class="f-disc-meta">📍 Distillery District · Free · Tonight</div>
+                  <div class="f-disc-add">＋ Add to Trip</div>
+                  <div class="f-disc-check">✓ Added to Trip</div>
+                </div>
+              </div>
+              <div class="f-disc-card" id="disc-card-2">
+                <div class="f-disc-img" style="background:linear-gradient(135deg,rgba(244,114,182,0.1),rgba(110,231,183,0.06))">🍜</div>
+                <div class="f-disc-body">
+                  <div class="f-disc-name">Kensington Food Tour</div>
+                  <div class="f-disc-meta">📍 Kensington Market · $25 · Sat</div>
+                  <div class="f-disc-add">＋ Add to Trip</div>
+                  <div class="f-disc-check">✓ Added to Trip</div>
+                </div>
+              </div>
+              <div class="f-disc-card" id="disc-card-3">
+                <div class="f-disc-img" style="background:linear-gradient(135deg,rgba(56,189,248,0.1),rgba(244,114,182,0.06))">🏛</div>
+                <div class="f-disc-body">
+                  <div class="f-disc-name">ROM — After Dark</div>
+                  <div class="f-disc-meta">📍 Bloor St · $18 · Fri eve</div>
+                  <div class="f-disc-add">＋ Add to Trip</div>
+                  <div class="f-disc-check">✓ Added to Trip</div>
+                </div>
+              </div>
+            </div>
+            <div class="ph-tabbar">
+              <div class="ph-tab"><div class="ph-tab-icon">🏠</div><div>Home</div></div>
+              <div class="ph-tab active"><div class="ph-tab-icon">✦</div><div>Discover</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon" style="background:var(--accent);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;margin:0 auto;">🗺</div><div>Map</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">📁</div><div>Routes</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">👥</div><div>People</div></div>
+            </div>
+          </div>
+
+          <!-- ── FRAME 3: MAP ── -->
+          <div class="anim-frame" id="f-map">
+            <div class="ph-status">
+              <span class="ph-status-time">9:41</span>
+              <span style="font-size:8px">●●● 🔋</span>
+            </div>
+            <div class="f-map-inner">
+              <div class="f-map-title">Explore</div>
+              <div class="f-chips" id="map-chips-row">
+                <div class="f-chip active" id="mc-all">All</div>
+                <div class="f-chip" id="mc-food">🍜 Food</div>
+                <div class="f-chip" id="mc-scenic">🌿 Scenic</div>
+                <div class="f-chip" id="mc-culture">🏛 Culture</div>
+              </div>
+              <div class="f-map-canvas" id="map-canvas">
+                <div class="map-grid-lines"></div>
+                <div class="map-road r1"></div>
+                <div class="map-road r2"></div>
+                <div class="map-road r3"></div>
+                <div class="map-road r4"></div>
+                <svg class="map-route-line" id="route-svg" viewBox="0 0 220 150" style="opacity:0;transition:opacity 0.6s;">
+                  <path id="route-path" d="" fill="none" stroke="rgba(110,231,183,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                </svg>
+                <!-- Pins injected by JS -->
+              </div>
+              <div class="map-foot">
+                <div class="map-sel-info" id="map-sel-info">0 selected</div>
+                <button class="map-plan-btn hidden-btn" id="map-plan-btn">✦ Plan Route</button>
+              </div>
+            </div>
+            <div class="ph-tabbar">
+              <div class="ph-tab"><div class="ph-tab-icon">🏠</div><div>Home</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">✦</div><div>Discover</div></div>
+              <div class="ph-tab active"><div class="ph-tab-icon" style="background:var(--accent);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;margin:0 auto;">🗺</div><div>Map</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">📁</div><div>Routes</div></div>
+              <div class="ph-tab"><div class="ph-tab-icon">👥</div><div>People</div></div>
+            </div>
+          </div>
+
+          <!-- ── FRAME 4: PLAN ROUTE ── -->
+          <div class="anim-frame" id="f-plan">
+            <div class="ph-status">
+              <span class="ph-status-time">9:41</span>
+              <span style="font-size:8px">●●● 🔋</span>
+            </div>
+            <div class="f-plan-inner">
+              <div class="f-plan-hdr">
+                <div class="f-back-btn">←</div>
+                <div class="f-plan-title">Route Planner</div>
+                <div class="f-plan-save">Save</div>
+              </div>
+              <!-- Budget -->
+              <div class="f-ctrl-card">
+                <div class="f-ctrl-lbl">Daily Budget</div>
+                <div class="f-ctrl-val" id="budget-display">$80</div>
+                <div class="f-slider-track">
+                  <div class="f-slider-fill" id="budget-fill" style="width:24%"></div>
+                  <div class="f-slider-thumb" id="budget-thumb" style="left:24%"></div>
+                </div>
+              </div>
+              <!-- Transport -->
+              <div class="f-ctrl-card">
+                <div class="f-ctrl-lbl">Transport Mode</div>
+                <div class="f-tmode-row" id="tmode-anim-row">
+                  <div class="f-tmode active" id="tm-walk"><div class="f-tmode-icon">🚶</div><div>Walk</div></div>
+                  <div class="f-tmode" id="tm-transit"><div class="f-tmode-icon">🚇</div><div>Transit</div></div>
+                  <div class="f-tmode" id="tm-bike"><div class="f-tmode-icon">🚲</div><div>Bike</div></div>
+                  <div class="f-tmode" id="tm-car"><div class="f-tmode-icon">🚗</div><div>Drive</div></div>
+                </div>
+              </div>
+              <!-- Stops -->
+              <div class="f-stops-hdr"><span>Your Stops</span><span>+ Add More</span></div>
+              <div class="f-stop-item">
+                <div class="f-stop-num">1</div>
+                <div class="f-stop-name">Distillery Night Market</div>
+                <div class="f-stop-time">6:00 PM</div>
+              </div>
+              <div class="f-stop-item">
+                <div class="f-stop-num">2</div>
+                <div class="f-stop-name">Kensington Food Tour</div>
+                <div class="f-stop-time">7:30 PM</div>
+              </div>
+              <div class="f-stop-item">
+                <div class="f-stop-num">3</div>
+                <div class="f-stop-name">ROM — After Dark</div>
+                <div class="f-stop-time">9:00 PM</div>
+              </div>
+              <!-- Summary -->
+              <div class="f-summary-card">
+                <div class="f-sum-item"><div class="f-sum-val">3h 20m</div><div class="f-sum-lbl">Total Time</div></div>
+                <div class="f-sum-div"></div>
+                <div class="f-sum-item"><div class="f-sum-val" id="sum-cost-display">~$80</div><div class="f-sum-lbl">Est. Cost</div></div>
+                <div class="f-sum-div"></div>
+                <div class="f-sum-item"><div class="f-sum-val">3</div><div class="f-sum-lbl">Stops</div></div>
+              </div>
+              <div class="f-plan-acts">
+                <div class="f-act-sec">💾 Save Route</div>
+                <div class="f-act-pri">▶ Start Guide</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── FRAME 5: GUIDE ── -->
+          <div class="anim-frame" id="f-guide">
+            <div class="f-guide-inner">
+              <div class="f-guide-hdr">
+                <div class="f-guide-exit">✕ End</div>
+                <div>
+                  <div class="f-guide-name">Evening in Toronto</div>
+                  <div class="f-guide-prog" id="guide-prog">Stop 1 of 3</div>
+                </div>
+                <div class="f-guide-nav">▶</div>
+              </div>
+              <div class="f-guide-cards">
+                <div class="f-guide-card current" id="gc-0">
+                  <div class="f-gc-stop">STOP 1 OF 3</div>
+                  <div class="f-gc-emoji">🎭</div>
+                  <div class="f-gc-name">Distillery Night Market</div>
+                  <div class="f-gc-meta">📍 Distillery District · Free entry<br>Open until 11pm · 12 min walk</div>
+                  <div class="f-gc-tags">
+                    <div class="f-gc-tag">Free</div>
+                    <div class="f-gc-tag">Outdoor</div>
+                    <div class="f-gc-tag">🌟 4.8</div>
+                  </div>
+                </div>
+                <div class="f-guide-card behind1" id="gc-1">
+                  <div class="f-gc-stop">STOP 2 OF 3</div>
+                  <div class="f-gc-emoji">🍜</div>
+                  <div class="f-gc-name">Kensington Food Tour</div>
+                  <div class="f-gc-meta">📍 Kensington Market · $25<br>Sat 7:30pm · 18 min transit</div>
+                </div>
+                <div class="f-guide-card behind2" id="gc-2">
+                  <div class="f-gc-stop">STOP 3 OF 3</div>
+                  <div class="f-gc-emoji">🏛</div>
+                  <div class="f-gc-name">ROM — After Dark</div>
+                  <div class="f-gc-meta">📍 Bloor St · $18<br>9pm–midnight · 12 min walk</div>
+                </div>
+              </div>
+              <div class="f-guide-suggestion">
+                <div class="f-gsug-icon">🍺</div>
+                <div>
+                  <div class="f-gsug-title">Nearby: Bar Raval</div>
+                  <div class="f-gsug-sub">4.6★ · 3 min walk · ~$12</div>
+                </div>
+                <div class="f-gsug-btns">
+                  <button class="f-gsug-skip">Skip</button>
+                  <button class="f-gsug-go">Go</button>
+                </div>
+              </div>
+              <div class="f-guide-foot">
+                <button class="f-guide-next">Next Stop →</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /phone-screen -->
+      </div><!-- /phone -->
+      <div class="phone-glow" id="phone-glow"></div>
+    </div><!-- /phone-wrap -->
+
+    <!-- Step indicator -->
+    <div class="step-indicator">
+      <div class="step-dot active" id="s0"></div>
+      <div class="step-dot" id="s1"></div>
+      <div class="step-dot" id="s2"></div>
+      <div class="step-dot" id="s3"></div>
+      <div class="step-dot" id="s4"></div>
+    </div>
+
+    <!-- Side labels -->
+    <div class="side-label" id="side-label">
+      <div class="sl-item active" id="sl-0"><div class="sl-dot"></div>Home</div>
+      <div class="sl-item" id="sl-1"><div class="sl-dot"></div>Discover</div>
+      <div class="sl-item" id="sl-2"><div class="sl-dot"></div>Map</div>
+      <div class="sl-item" id="sl-3"><div class="sl-dot"></div>Plan Route</div>
+      <div class="sl-item" id="sl-4"><div class="sl-dot"></div>Guide</div>
+    </div>
+
+  </main>
+</div><!-- /layout -->
+
+<script>
+'use strict';
+
+/* ── STATE ── */
+let currentStep = 0;
+let stepTimer   = null;
+const STEP_DURATIONS = [3500, 4000, 5000, 4500, 4000]; // ms per step
+
+/* ── CONCEPT DATA ── */
+const CONCEPTS = {
+  1: {
+    numLabel:  '01 — Algorithmic Control',
+    title:     'From curated feeds\nto open exploration',
+    sub:       'Users feel empowered by inspiration but remain dependent on platform visibility. The map interface returns agency to the explorer.',
+    accent:    'var(--accent)',
+    glow:      'rgba(110,231,183,0.18)',
+  },
+  2: {
+    numLabel:  '02 — Socio-Technical Systems',
+    title:     'One interface,\nmany interlocking systems',
+    sub:       'Local knowledge, urban mobility, budgeting, platform discovery, and user behavior all converge in a single design challenge.',
+    accent:    'var(--accent2)',
+    glow:      'rgba(56,189,248,0.18)',
+  },
+  3: {
+    numLabel:  '03 — Affordances',
+    title:     'Actions that speak\nfor themselves',
+    sub:       'Browsing, adding stops, adjusting budget, comparing transport, following a guide — each action is designed to feel immediately visible and understandable.',
+    accent:    'var(--accent3)',
+    glow:      'rgba(244,114,182,0.18)',
+  },
+};
+let activeConcept = 1;
+
+/* ── DOM ── */
+const frames    = ['f-home','f-discover','f-map','f-plan','f-guide'].map(id => document.getElementById(id));
+const stepDots  = [0,1,2,3,4].map(i => document.getElementById('s'+i));
+const sideItems = [0,1,2,3,4].map(i => document.getElementById('sl-'+i));
+const progDots  = [1,2,3,4,5].map(i => document.getElementById('pd-'+i));
+const phoneGlow = document.getElementById('phone-glow');
+
+/* ── SELECT CONCEPT ── */
+function selectConcept(n) {
+  activeConcept = n;
+  document.querySelectorAll('.concept-card').forEach(c => {
+    c.classList.toggle('active', parseInt(c.dataset.concept) === n);
+  });
+  const d = CONCEPTS[n];
+  document.getElementById('cto-num').textContent   = d.numLabel;
+  document.getElementById('cto-num').style.color   = d.accent;
+  document.getElementById('cto-title').textContent = d.title;
+  document.getElementById('cto-sub').textContent   = d.sub;
+}
+
+/* ── SHOW FRAME ── */
+function showFrame(idx) {
+  frames.forEach((f, i) => {
+    f.classList.remove('showing', 'hiding');
+    if (i === idx) f.classList.add('showing');
+  });
+  stepDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  sideItems.forEach((s, i) => s.classList.toggle('active', i === idx));
+  progDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+/* ── MAP PINS ── */
+const PINS = [
+  { id: 'pin-cn',  label: 'CN Tower',   x: 25,  y: 30,  color: 'var(--accent)',  cat: 'scenic'  },
+  { id: 'pin-rom', label: 'ROM',         x: 40,  y: 22,  color: 'var(--accent2)', cat: 'culture' },
+  { id: 'pin-ken', label: 'Kensington',  x: 18,  y: 55,  color: 'var(--accent3)', cat: 'food'    },
+  { id: 'pin-dis', label: 'Distillery',  x: 68,  y: 45,  color: 'var(--accent)',  cat: 'culture' },
+  { id: 'pin-hb',  label: 'Harbourfront',x: 45,  y: 72,  color: 'var(--accent2)', cat: 'scenic'  },
+  { id: 'pin-ag',  label: 'AGO',         x: 30,  y: 40,  color: 'var(--accent3)', cat: 'art'     },
+];
+const mapCanvas = document.getElementById('map-canvas');
+const routeSvg  = document.getElementById('route-svg');
+const routePath = document.getElementById('route-path');
+
+function buildPins() {
+  PINS.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'map-pin';
+    el.id = p.id;
+    el.dataset.cat = p.cat;
+    el.style.cssText = `position:absolute;left:${p.x}%;top:${p.y}%;transform:translate(-50%,-50%);`;
+    el.innerHTML = `<div class="pin-dot" style="--pin-color:${p.color}"></div><div class="pin-label">${p.label}</div>`;
+    mapCanvas.appendChild(el);
+  });
+}
+buildPins();
+
+let mapSelectedPins = [];
+function clearMapSelection() {
+  mapSelectedPins = [];
+  document.querySelectorAll('.map-pin').forEach(p => p.classList.remove('selected','pulse'));
+  routeSvg.style.opacity = '0';
+  document.getElementById('map-sel-info').textContent = '0 selected';
+  document.getElementById('map-plan-btn').classList.add('hidden-btn');
+}
+
+function selectMapPin(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.add('selected','pulse');
+    mapSelectedPins.push(id);
+    document.getElementById('map-sel-info').textContent = mapSelectedPins.length + ' selected';
+    if (mapSelectedPins.length >= 2) {
+      document.getElementById('map-plan-btn').classList.remove('hidden-btn');
+      drawRoute();
+    }
+  }
+}
+
+function drawRoute() {
+  const selected = mapSelectedPins.map(id => PINS.find(p => p.id === id)).filter(Boolean);
+  if (selected.length < 2) return;
+  // Convert % to SVG coords (220×150 canvas)
+  const pts = selected.map(p => ({ x: p.x * 2.2, y: p.y * 1.5 }));
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for (let i = 1; i < pts.length; i++) {
+    const cx = (pts[i-1].x + pts[i].x) / 2;
+    d += ` Q ${cx} ${pts[i-1].y} ${pts[i].x} ${pts[i].y}`;
+  }
+  routePath.setAttribute('d', d);
+  routeSvg.style.opacity = '1';
+}
+
+/* ── CHIP ANIMATIONS ── */
+function animMapChips() {
+  const chips = ['mc-all','mc-food','mc-scenic','mc-culture'];
+  let ci = 0;
+  return setInterval(() => {
+    chips.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+    const el = document.getElementById(chips[ci % chips.length]);
+    if (el) el.classList.add('active');
+    ci++;
+  }, 900);
+}
+
+function animDiscChips() {
+  const chips = ['disc-chip-all','disc-chip-food','disc-chip-fest','disc-chip-art','disc-chip-culture'];
+  let ci = 0;
+  return setInterval(() => {
+    chips.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+    const el = document.getElementById(chips[ci % chips.length]);
+    if (el) el.classList.add('active');
+    ci++;
+  }, 700);
+}
+
+/* ── BUDGET ANIMATION ── */
+const budgets = [
+  { val: '$60',  pct: 16 },
+  { val: '$120', pct: 32 },
+  { val: '$200', pct: 52 },
+  { val: '$80',  pct: 22 },
+];
+let bi = 0;
+function animBudget() {
+  bi = (bi + 1) % budgets.length;
+  const b = budgets[bi];
+  const disp = document.getElementById('budget-display');
+  const fill = document.getElementById('budget-fill');
+  const thumb = document.getElementById('budget-thumb');
+  const cost  = document.getElementById('sum-cost-display');
+  if (disp)  { disp.textContent  = b.val; }
+  if (fill)  { fill.style.width  = b.pct + '%'; }
+  if (thumb) { thumb.style.left  = b.pct + '%'; }
+  if (cost)  { cost.textContent  = '~' + b.val; }
+}
+
+/* ── TRANSPORT ANIMATION ── */
+const tmodes = ['tm-walk','tm-transit','tm-bike','tm-car'];
+let ti = 0;
+function animTransport() {
+  document.querySelectorAll('.f-tmode').forEach(t => t.classList.remove('active'));
+  ti = (ti + 1) % tmodes.length;
+  const el = document.getElementById(tmodes[ti]);
+  if (el) el.classList.add('active');
+}
+
+/* ── DISCOVER CARD ANIMATION ── */
+function animDiscCard(idx) {
+  const card = document.getElementById('disc-card-' + idx);
+  if (card) card.classList.add('highlighted');
+}
+
+/* ── GUIDE CARD CYCLE ── */
+let guideStep = 0;
+function cycleGuideCards() {
+  guideStep = (guideStep + 1) % 3;
+  const cards = [document.getElementById('gc-0'), document.getElementById('gc-1'), document.getElementById('gc-2')];
+  cards.forEach((c, i) => {
+    c.className = 'f-guide-card';
+    const offset = (i - guideStep + 3) % 3;
+    if (offset === 0) c.classList.add('current');
+    else if (offset === 1) c.classList.add('behind1');
+    else c.classList.add('behind2');
+  });
+  const prog = document.getElementById('guide-prog');
+  if (prog) prog.textContent = `Stop ${guideStep + 1} of 3`;
+}
+
+/* ── STEP SEQUENCE ── */
+let activeTimers = [];
+function clearTimers() {
+  activeTimers.forEach(t => clearTimeout(t));
+  activeTimers = [];
+}
+
+function t(fn, delay) {
+  const id = setTimeout(fn, delay);
+  activeTimers.push(id);
+  return id;
+}
+
+function runStep(step) {
+  currentStep = step;
+  clearTimers();
+  showFrame(step);
+  phoneGlow.style.background = CONCEPTS[activeConcept].glow;
+
+  if (step === 0) {
+    // HOME: just scroll animation runs via CSS
+    stepTimer = setTimeout(() => runStep(1), STEP_DURATIONS[0]);
+  }
+  else if (step === 1) {
+    // DISCOVER: chip anim, then highlight cards
+    clearMapSelection();
+    document.querySelectorAll('.f-disc-card').forEach(c => c.classList.remove('highlighted'));
+    const chipInterval = animDiscChips();
+    activeTimers.push(chipInterval);
+    t(() => { animDiscCard(1); }, 1200);
+    t(() => { animDiscCard(2); }, 2200);
+    t(() => { animDiscCard(3); clearInterval(chipInterval); }, 3200);
+    stepTimer = setTimeout(() => runStep(2), STEP_DURATIONS[1]);
+  }
+  else if (step === 2) {
+    // MAP: chip cycle, then select pins
+    clearMapSelection();
+    const chipInterval = animMapChips();
+    activeTimers.push(chipInterval);
+    t(() => { selectMapPin('pin-dis'); }, 1200);
+    t(() => { selectMapPin('pin-ken'); clearInterval(chipInterval); }, 2400);
+    t(() => { selectMapPin('pin-rom'); }, 3500);
+    stepTimer = setTimeout(() => runStep(3), STEP_DURATIONS[2]);
+  }
+  else if (step === 3) {
+    // PLAN ROUTE: animate budget & transport
+    const budgetInterval = setInterval(animBudget, 1200);
+    const transportInterval = setInterval(animTransport, 1000);
+    activeTimers.push(budgetInterval, transportInterval);
+    stepTimer = setTimeout(() => {
+      clearInterval(budgetInterval);
+      clearInterval(transportInterval);
+      runStep(4);
+    }, STEP_DURATIONS[3]);
+  }
+  else if (step === 4) {
+    // GUIDE: cycle cards
+    guideStep = 0;
+    const gcards = [document.getElementById('gc-0'),document.getElementById('gc-1'),document.getElementById('gc-2')];
+    gcards.forEach((c,i) => {
+      c.className = 'f-guide-card';
+      if (i===0) c.classList.add('current');
+      else if(i===1) c.classList.add('behind1');
+      else c.classList.add('behind2');
+    });
+    const guideInterval = setInterval(cycleGuideCards, 1400);
+    activeTimers.push(guideInterval);
+    stepTimer = setTimeout(() => {
+      clearInterval(guideInterval);
+      runStep(0); // LOOP
+    }, STEP_DURATIONS[4]);
+  }
+}
+
+/* ── INIT ── */
+selectConcept(1);
+runStep(0);
+</script>
+</body>
+</html>
